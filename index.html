@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="th" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academic Portfolio | ณัฐธิดา จันทร์เรืองศรี (บิวตี้)</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Google Fonts: Kanit & Prompt -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Prompt:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        cream: {
+                            50: '#FFFEFC',
+                            100: '#FDFBF7',
+                            200: '#F7F3EB',
+                            300: '#EFE7D8',
+                            400: '#E2D5C0',
+                        },
+                        pinksoft: {
+                            50: '#FFF5F7',
+                            100: '#FCE7F3',
+                            200: '#FBCFE8',
+                            300: '#F472B6',
+                            400: '#EC4899',
+                            500: '#DB2777',
+                        },
+                        stonegray: '#27272A',
+                    },
+                    fontFamily: {
+                        prompt: ['Prompt', 'sans-serif'],
+                        kanit: ['Kanit', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Prompt', sans-serif;
+            background-color: #FDFBF7;
+            color: #27272A;
+        }
+        h1, h2, h3, h4, h5, .font-heading {
+            font-family: 'Kanit', sans-serif;
+        }
+        .minimal-card {
+            background: #FFFFFF;
+            border: 1px solid rgba(244, 114, 182, 0.18);
+            box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.03), 0 2px 6px -1px rgba(0, 0, 0, 0.02);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .minimal-card:hover {
+            box-shadow: 0 12px 28px -4px rgba(244, 114, 182, 0.15), 0 4px 12px -2px rgba(0, 0, 0, 0.03);
+            border-color: rgba(244, 114, 182, 0.4);
+            transform: translateY(-3px);
+        }
+        .badge-soft {
+            background-color: rgba(252, 231, 243, 0.7);
+            color: #DB2777;
+            border: 1px solid rgba(244, 114, 182, 0.25);
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #FDFBF7;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #FBCFE8;
+            border-radius: 9999px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #F472B6;
+        }
+    </style>
+</head>
+<body class="antialiased min-h-screen flex flex-col justify-between selection:bg-pinksoft-100 selection:text-pinksoft-500">
+
+    <!-- Header Navigation -->
+    <header class="sticky top-0 z-40 bg-cream-100/90 backdrop-blur-md border-b border-pinksoft-100/80">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+            <a href="#" class="flex items-center gap-2.5 text-stonegray font-heading text-lg font-semibold tracking-wide hover:opacity-85 transition-opacity">
+                <span class="w-8 h-8 rounded-full bg-pinksoft-100 text-pinksoft-500 flex items-center justify-center text-sm font-bold border border-pinksoft-200">
+                    B
+                </span>
+                <span>BIWTI<span class="text-pinksoft-400 font-light ml-1 text-sm">.PORTFOLIO</span></span>
+            </a>
+
+            <!-- Desktop Links -->
+            <nav class="hidden md:flex items-center gap-6 text-xs font-medium text-gray-600">
+                <a href="#about" class="hover:text-pinksoft-500 transition-colors">เกี่ยวกับฉัน</a>
+                <a href="#education" class="hover:text-pinksoft-500 transition-colors">ประวัติการศึกษา</a>
+                <a href="#experience" class="hover:text-pinksoft-500 transition-colors">ประสบการณ์ฝึกงาน</a>
+                <a href="#skills" class="hover:text-pinksoft-500 transition-colors">ความสามารถพิเศษ</a>
+                <a href="#github-guide" class="hover:text-pinksoft-500 transition-colors flex items-center gap-1.5 text-pinksoft-500 bg-pinksoft-50 px-3 py-1 rounded-full border border-pinksoft-200">
+                    <i class="fa-brands fa-github text-xs"></i> คู่มือ GitHub Pages
+                </a>
+            </nav>
+
+            <!-- Actions -->
+            <div class="flex items-center gap-2">
+                <a href="#contact" class="px-4 py-1.5 rounded-full text-xs font-medium bg-stonegray text-white hover:bg-pinksoft-500 transition-all shadow-xs">
+                    <i class="fa-regular fa-paper-plane mr-1 text-[10px]"></i> ติดต่อ
+                </a>
+                <button id="mobile-menu-btn" class="md:hidden p-2 rounded-xl text-gray-600 hover:bg-pinksoft-50 focus:outline-none" aria-label="Toggle Navigation Menu">
+                    <i class="fa-solid fa-bars text-base"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Dropdown Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white/95 border-b border-pinksoft-100 px-6 py-4 space-y-3 text-xs font-medium shadow-lg">
+            <a href="#about" class="block text-gray-700 hover:text-pinksoft-500 py-1">เกี่ยวกับฉัน</a>
+            <a href="#education" class="block text-gray-700 hover:text-pinksoft-500 py-1">ประวัติการศึกษา</a>
+            <a href="#experience" class="block text-gray-700 hover:text-pinksoft-500 py-1">ประสบการณ์ฝึกงาน</a>
+            <a href="#skills" class="block text-gray-700 hover:text-pinksoft-500 py-1">ความสามารถพิเศษ</a>
+            <a href="#github-guide" class="block text-pinksoft-500 hover:text-pinksoft-600 font-semibold py-1">
+                <i class="fa-brands fa-github mr-1"></i> คู่มือ GitHub Pages
+            </a>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="max-w-5xl mx-auto px-4 sm:px-6 pt-8 pb-20 space-y-16 flex-grow">
+
+        <!-- About / Profile Hero Section -->
+        <section id="about" class="pt-2">
+            <div class="minimal-card rounded-3xl p-6 sm:p-10 relative overflow-hidden bg-gradient-to-br from-white via-cream-50 to-pinksoft-50">
+                <div class="flex flex-col md:flex-row items-center md:items-start gap-8">
+                    
+                    <!-- Avatar Card Component -->
+                    <div class="relative shrink-0">
+                        <div class="w-36 h-36 sm:w-44 sm:h-44 rounded-2xl bg-gradient-to-tr from-pinksoft-100 via-cream-200 to-white border-2 border-white shadow-md overflow-hidden flex flex-col items-center justify-center relative group">
+                            <div class="w-20 h-20 rounded-full bg-pinksoft-200/80 text-pinksoft-500 flex items-center justify-center text-3xl font-bold border border-white shadow-xs mb-1">
+                                <i class="fa-solid fa-user-nurse"></i>
+                            </div>
+                            <span class="text-xs font-bold text-gray-700 tracking-wide font-heading">
+                                ณัฐธิดา
+                            </span>
+                            <span class="text-[10px] text-pinksoft-400 font-semibold">
+                                (บิวตี้ / Biwti)
+                            </span>
+                            
+                            <span class="absolute bottom-2 bg-white/90 backdrop-blur-xs text-[10px] text-pinksoft-500 font-semibold px-2.5 py-0.5 rounded-full border border-pinksoft-200 shadow-2xs">
+                                💕 Academic Portfolio
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Personal Information Content -->
+                    <div class="space-y-4 text-center md:text-left flex-grow">
+                        <div>
+                            <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full badge-soft text-xs font-semibold mb-3">
+                                <i class="fa-solid fa-graduation-cap text-[10px]"></i> แฟ้มสะสมผลงานทางวิชาการ
+                            </div>
+                            <h1 class="text-3xl sm:text-4xl font-bold text-stonegray tracking-tight font-heading">
+                                นางสาวณัฐธิดา จันทร์เรืองศรี
+                            </h1>
+                            <p class="text-base sm:text-lg font-medium text-pinksoft-500 mt-1">
+                                ชื่อเล่น: <span class="font-bold underline decoration-pinksoft-200 decoration-2">บิวตี้ (Biwti)</span>
+                            </p>
+                        </div>
+
+                        <p class="text-gray-600 text-xs sm:text-sm leading-relaxed max-w-2xl">
+                            มุ่งมั่นศึกษาและฝึกปฏิบัติงานด้านการสาธารณสุขและการบริการสุขภาพ มีใจรักในการดูแลผู้ป่วยด้วยความใส่ใจ สุขุม อ่อนโยน พร้อมเรียนรู้และพัฒนาตนเองร่วมกับทีมอย่างมีประสิทธิภาพ
+                        </p>
+
+                        <!-- Key Attributes Badges -->
+                        <div class="flex flex-wrap justify-center md:justify-start gap-2 pt-1 text-xs">
+                            <span class="bg-white px-3 py-1.5 rounded-xl border border-gray-200 text-gray-700 flex items-center gap-2 shadow-2xs">
+                                <i class="fa-regular fa-calendar-check text-pinksoft-400"></i> วันเกิด: 14 กันยายน 2550
+                            </span>
+                            <span class="bg-white px-3 py-1.5 rounded-xl border border-gray-200 text-gray-700 flex items-center gap-2 shadow-2xs">
+                                <i class="fa-regular fa-user text-pinksoft-400"></i> อายุ: 19 ปี
+                            </span>
+                            <span class="bg-white px-3 py-1.5 rounded-xl border border-gray-200 text-gray-700 flex items-center gap-2 shadow-2xs">
+                                <i class="fa-solid fa-flag text-pinksoft-400"></i> สัญชาติ: ไทย
+                            </span>
+                        </div>
+
+                        <!-- Quick Contact Buttons -->
+                        <div class="pt-3 flex flex-wrap justify-center md:justify-start gap-3">
+                            <button onclick="copyToClipboard('0980060898', 'เบอร์โทรศัพท์')" class="px-4 py-2 rounded-xl bg-pinksoft-400 hover:bg-pinksoft-500 text-white font-medium text-xs shadow-xs transition-all flex items-center gap-2 cursor-pointer">
+                                <i class="fa-solid fa-phone"></i> 098-006-0898
+                            </button>
+                            <button onclick="copyToClipboard('rc8435160@gmail.com', 'อีเมล')" class="px-4 py-2 rounded-xl bg-white hover:bg-pinksoft-50 text-gray-700 font-medium text-xs border border-gray-200 transition-all flex items-center gap-2 cursor-pointer">
+                                <i class="fa-regular fa-envelope text-pinksoft-400"></i> rc8435160@gmail.com
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Education History Timeline Section -->
+        <section id="education" class="scroll-mt-20">
+            <div class="flex items-center gap-2.5 mb-6">
+                <span class="w-2.5 h-6 rounded-full bg-pinksoft-400"></span>
+                <h2 class="text-xl font-bold text-stonegray tracking-wide font-heading">ประวัติการศึกษา</h2>
+                <span class="text-xs text-gray-400 font-normal">/ Education History</span>
+            </div>
+
+            <div class="space-y-4 relative before:absolute before:left-3.5 sm:before:left-4 before:top-4 before:bottom-4 before:w-0.5 before:bg-pinksoft-100">
+                
+                <!-- Bachelor Degree -->
+                <div class="relative pl-8 sm:pl-10">
+                    <div class="absolute left-1.5 sm:left-2 top-4 w-4 h-4 rounded-full bg-pinksoft-400 border-4 border-white ring-2 ring-pinksoft-100"></div>
+                    <div class="minimal-card rounded-2xl p-5 sm:p-6 bg-gradient-to-r from-white via-white to-pinksoft-50/30">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1 mb-2">
+                            <span class="text-xs font-semibold px-2.5 py-0.5 rounded-md bg-pinksoft-100 text-pinksoft-500 w-max">
+                                พ.ศ. 2569
+                            </span>
+                            <span class="text-[11px] text-pinksoft-500 font-medium bg-pinksoft-50 px-2 py-0.5 rounded border border-pinksoft-100 w-max">
+                                การศึกษาระดับอุดมศึกษา
+                            </span>
+                        </div>
+                        <h3 class="text-base font-bold text-stonegray font-heading">วิทยาลัยการสาธารณสุขสิรินธร จังหวัดขอนแก่น</h3>
+                        <p class="text-xs text-gray-600 mt-1">ระดับปริญญาตรี ด้านสาธารณสุขศาสตร์และการบริการสุขภาพ</p>
+                    </div>
+                </div>
+
+                <!-- Senior High School -->
+                <div class="relative pl-8 sm:pl-10">
+                    <div class="absolute left-1.5 sm:left-2 top-4 w-4 h-4 rounded-full bg-pinksoft-300 border-4 border-white"></div>
+                    <div class="minimal-card rounded-2xl p-5 sm:p-6">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1 mb-2">
+                            <span class="text-xs font-semibold px-2.5 py-0.5 rounded-md bg-cream-200 text-gray-700 w-max">
+                                พ.ศ. 2568
+                            </span>
+                            <span class="text-xs text-gray-400">การศึกษาระดับมัธยมศึกษา</span>
+                        </div>
+                        <h3 class="text-base font-bold text-stonegray font-heading">โรงเรียนเวียงนครวิทยาคม</h3>
+                        <p class="text-xs text-gray-500 mt-1">ระดับมัธยมศึกษาตอนปลาย</p>
+                    </div>
+                </div>
+
+                <!-- Junior High School -->
+                <div class="relative pl-8 sm:pl-10">
+                    <div class="absolute left-1.5 sm:left-2 top-4 w-4 h-4 rounded-full bg-cream-300 border-4 border-white"></div>
+                    <div class="minimal-card rounded-2xl p-5 sm:p-6">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1 mb-2">
+                            <span class="text-xs font-semibold px-2.5 py-0.5 rounded-md bg-cream-200 text-gray-700 w-max">
+                                พ.ศ. 2562
+                            </span>
+                            <span class="text-xs text-gray-400">การศึกษาระดับมัธยมศึกษา</span>
+                        </div>
+                        <h3 class="text-base font-bold text-stonegray font-heading">โรงเรียนเวียงนครวิทยาคม</h3>
+                        <p class="text-xs text-gray-500 mt-1">ระดับมัธยมศึกษาตอนต้น</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Work & Hospital Internship Experience Section -->
+        <section id="experience" class="scroll-mt-20">
+            <div class="flex items-center justify-between mb-6">
+                <div class="flex items-center gap-2.5">
+                    <span class="w-2.5 h-6 rounded-full bg-pinksoft-400"></span>
+                    <h2 class="text-xl font-bold text-stonegray tracking-wide font-heading">ประสบการณ์การฝึกทำงาน</h2>
+                    <span class="text-xs text-gray-400 font-normal">/ Practical Experience</span>
+                </div>
+            </div>
+
+            <!-- Internship Hospital Banner Card -->
+            <div class="minimal-card rounded-2xl p-4 sm:p-5 mb-5 bg-gradient-to-r from-white via-cream-50 to-pinksoft-50/60 flex items-center gap-4 border-l-4 border-l-pinksoft-400">
+                <div class="w-12 h-12 rounded-xl bg-pinksoft-100 text-pinksoft-500 flex items-center justify-center text-xl shrink-0 border border-pinksoft-200">
+                    <i class="fa-solid fa-hospital"></i>
+                </div>
+                <div>
+                    <h3 class="text-base font-bold text-stonegray font-heading">ฝึกประสบการณ์ ณ โรงพยาบาลภูเวียง จังหวัดขอนแก่น</h3>
+                    <p class="text-xs text-gray-600">ได้ปฏิบัติงานจริงในระดับปฐมภูมิร่วมกับทีมบุคลากรทางการแพทย์เฉพาะทาง</p>
+                </div>
+            </div>
+
+            <!-- Department Cards Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                
+                <!-- Physical Therapy Room -->
+                <div class="minimal-card rounded-2xl p-6 flex flex-col justify-between border-t-2 border-t-pinksoft-300">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="w-10 h-10 rounded-xl bg-pinksoft-100 text-pinksoft-500 flex items-center justify-center text-lg">
+                                <i class="fa-solid fa-user-doctor"></i>
+                            </span>
+                            <span class="text-[11px] font-semibold px-3 py-1 bg-pinksoft-50 text-pinksoft-500 rounded-full border border-pinksoft-100">
+                                แผนกกายภาพบำบัด
+                            </span>
+                        </div>
+                        <h4 class="text-lg font-bold text-stonegray font-heading mb-3">ห้องกายภาพบำบัด</h4>
+                        <ul class="space-y-3 text-xs text-gray-600">
+                            <li class="flex items-start gap-2.5">
+                                <i class="fa-solid fa-circle-check text-pinksoft-400 mt-0.5 shrink-0"></i>
+                                <span>เริ่มจากการซักประวัติผู้ป่วยขั้นต้น ตรวจวัดความดันโลหิตอย่างละเอียด</span>
+                            </li>
+                            <li class="flex items-start gap-2.5">
+                                <i class="fa-solid fa-circle-check text-pinksoft-400 mt-0.5 shrink-0"></i>
+                                <span>นำผ้าร้อนมาประคบบริเวณที่จะทำการกายภาพบำบัด เพื่อให้กล้ามเนื้อผ่อนคลายและพร้อมสำหรับการรักษา</span>
+                            </li>
+                            <li class="flex items-start gap-2.5">
+                                <i class="fa-solid fa-circle-check text-pinksoft-400 mt-0.5 shrink-0"></i>
+                                <span>ดูแล คอยอำนวยความสะดวก และให้กำลังใจผู้ป่วยตลอดขั้นตอนการกายภาพบำบัด</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="mt-6 pt-3 border-t border-gray-100 text-[11px] text-gray-400 flex items-center gap-1.5">
+                        <i class="fa-solid fa-heart-pulse text-pinksoft-400"></i> การดูแลเอาใจใส่ด้วยจิตใจบริการสุขภาพ
+                    </div>
+                </div>
+
+                <!-- Obstetrics & Gynecology Department -->
+                <div class="minimal-card rounded-2xl p-6 flex flex-col justify-between border-t-2 border-t-pinksoft-300">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="w-10 h-10 rounded-xl bg-cream-200 text-stonegray flex items-center justify-center text-lg">
+                                <i class="fa-solid fa-baby-carriage"></i>
+                            </span>
+                            <span class="text-[11px] font-semibold px-3 py-1 bg-cream-100 text-stonegray rounded-full border border-cream-300">
+                                แผนกสูตินรีเวช
+                            </span>
+                        </div>
+                        <h4 class="text-lg font-bold text-stonegray font-heading mb-3">แผนกสูตินรีเวช</h4>
+                        <ul class="space-y-3 text-xs text-gray-600">
+                            <li class="flex items-start gap-2.5">
+                                <i class="fa-solid fa-circle-check text-pinksoft-400 mt-0.5 shrink-0"></i>
+                                <span>ช่วยพยาบาลตรวจวัดอุณหภูมิร่างกาย (วัดไข้) และตรวจวัดความดันโลหิต</span>
+                            </li>
+                            <li class="flex items-start gap-2.5">
+                                <i class="fa-solid fa-circle-check text-pinksoft-400 mt-0.5 shrink-0"></i>
+                                <span>ช่วยตรวจวัดส่วนสูง และชั่งน้ำหนักของคุณแม่ที่มาใช้บริการฝากครรภ์และตรวจรักษา</span>
+                            </li>
+                            <li class="flex items-start gap-2.5">
+                                <i class="fa-solid fa-circle-check text-pinksoft-400 mt-0.5 shrink-0"></i>
+                                <span>ได้เข้าไปสังเกตการณ์การทำงานจริงของแพทย์เฉพาะทางภายในห้องตรวจวินิจฉัย</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="mt-6 pt-3 border-t border-gray-100 text-[11px] text-gray-400 flex items-center gap-1.5">
+                        <i class="fa-solid fa-stethoscope text-pinksoft-400"></i> เรียนรู้ขั้นตอนกระบวนการตรวจรักษาจริง
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Special Skills Section -->
+        <section id="skills" class="scroll-mt-20">
+            <div class="flex items-center gap-2.5 mb-6">
+                <span class="w-2.5 h-6 rounded-full bg-pinksoft-400"></span>
+                <h2 class="text-xl font-bold text-stonegray tracking-wide font-heading">ความสามารถพิเศษ</h2>
+                <span class="text-xs text-gray-400 font-normal">/ Skills & Competencies</span>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                
+                <!-- Skill 1 -->
+                <div class="minimal-card rounded-2xl p-5 flex flex-col justify-between">
+                    <div>
+                        <div class="w-10 h-10 rounded-xl bg-pinksoft-100 text-pinksoft-500 flex items-center justify-center text-lg mb-3">
+                            <i class="fa-solid fa-trophy"></i>
+                        </div>
+                        <h3 class="text-sm font-bold text-stonegray font-heading mb-1">ทักษะการเล่นกีฬา</h3>
+                        <p class="text-xs text-gray-500 leading-relaxed">
+                            ทักษะการเล่นกีฬาดีเยี่ยม ร่างกายแข็งแรง คล่องแคล่ว มีน้ำใจนักกีฬา และรักษาสุขภาพเสมอ
+                        </p>
+                    </div>
+                    <span class="mt-4 inline-block text-[10px] font-semibold text-pinksoft-400">
+                        <i class="fa-solid fa-star text-[9px] mr-1"></i> ดีเยี่ยม (Excellent)
+                    </span>
+                </div>
+
+                <!-- Skill 2 -->
+                <div class="minimal-card rounded-2xl p-5 flex flex-col justify-between">
+                    <div>
+                        <div class="w-10 h-10 rounded-xl bg-pinksoft-100 text-pinksoft-500 flex items-center justify-center text-lg mb-3">
+                            <i class="fa-solid fa-users"></i>
+                        </div>
+                        <h3 class="text-sm font-bold text-stonegray font-heading mb-1">การทำงานเป็นทีม</h3>
+                        <p class="text-xs text-gray-500 leading-relaxed">
+                            ทำงานร่วมกับผู้อื่นได้ดี ปรับตัวเก่ง มีทักษะการสื่อสาร รับฟังความคิดเห็น และสร้างบรรยากาศที่ดี
+                        </p>
+                    </div>
+                    <span class="mt-4 inline-block text-[10px] font-semibold text-pinksoft-400">
+                        <i class="fa-solid fa-star text-[9px] mr-1"></i> ทำงานเป็นทีม (Teamwork)
+                    </span>
+                </div>
+
+                <!-- Skill 3 -->
+                <div class="minimal-card rounded-2xl p-5 flex flex-col justify-between">
+                    <div>
+                        <div class="w-10 h-10 rounded-xl bg-pinksoft-100 text-pinksoft-500 flex items-center justify-center text-lg mb-3">
+                            <i class="fa-solid fa-brain"></i>
+                        </div>
+                        <h3 class="text-sm font-bold text-stonegray font-heading mb-1">ทำงานภายใต้แรงกดดัน</h3>
+                        <p class="text-xs text-gray-500 leading-relaxed">
+                            มีสติ แก้ไขปัญหาเฉพาะหน้าได้อย่างใจเย็น สามารถทำงานภายใต้ภาวะตึงเครียดหรือเร่งด่วนได้ดี
+                        </p>
+                    </div>
+                    <span class="mt-4 inline-block text-[10px] font-semibold text-pinksoft-400">
+                        <i class="fa-solid fa-star text-[9px] mr-1"></i> ความสุขุม (Resilience)
+                    </span>
+                </div>
+
+                <!-- Skill 4 -->
+                <div class="minimal-card rounded-2xl p-5 flex flex-col justify-between">
+                    <div>
+                        <div class="w-10 h-10 rounded-xl bg-pinksoft-100 text-pinksoft-500 flex items-center justify-center text-lg mb-3">
+                            <i class="fa-solid fa-file-signature"></i>
+                        </div>
+                        <h3 class="text-sm font-bold text-stonegray font-heading mb-1">โปรแกรมงานเอกสาร</h3>
+                        <p class="text-xs text-gray-500 leading-relaxed">
+                            ใช้งานโปรแกรมจัดการเอกสาร ระบบคอมพิวเตอร์พื้นฐาน และการจัดเก็บข้อมูลได้อย่างคล่องแคล่ว
+                        </p>
+                    </div>
+                    <span class="mt-4 inline-block text-[10px] font-semibold text-pinksoft-400">
+                        <i class="fa-solid fa-star text-[9px] mr-1"></i> งานเอกสาร (Office Skills)
+                    </span>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="scroll-mt-20">
+            <div class="minimal-card rounded-3xl p-6 sm:p-8 bg-gradient-to-br from-white via-cream-50 to-pinksoft-50 border-2 border-pinksoft-100">
+                <div class="max-w-3xl mx-auto space-y-6">
+                    <div class="text-center">
+                        <span class="text-[11px] font-semibold tracking-wider text-pinksoft-500 uppercase bg-white px-3.5 py-1 rounded-full border border-pinksoft-100 shadow-2xs">
+                            Contact Information
+                        </span>
+                        <h2 class="text-2xl font-bold text-stonegray font-heading mt-2">ช่องทางการติดต่อ</h2>
+                        <p class="text-xs text-gray-500 mt-1">สอบถามหรือติดต่อเรื่องการศึกษาและฝึกงานได้ตลอดเวลา</p>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                        
+                        <!-- Phone -->
+                        <div onclick="copyToClipboard('0980060898', 'เบอร์โทรศัพท์')" class="bg-white p-4 rounded-2xl border border-gray-200/80 hover:border-pinksoft-300 transition-all cursor-pointer group flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-xl bg-pinksoft-50 group-hover:bg-pinksoft-400 group-hover:text-white text-pinksoft-400 flex items-center justify-center text-base transition-colors shrink-0">
+                                <i class="fa-solid fa-phone"></i>
+                            </div>
+                            <div class="overflow-hidden">
+                                <p class="text-[10px] text-gray-400 font-medium">เบอร์โทรศัพท์ (คลิกคัดลอก)</p>
+                                <p class="text-xs font-bold text-stonegray truncate">098-006-0898</p>
+                            </div>
+                        </div>
+
+                        <!-- Email -->
+                        <div onclick="copyToClipboard('rc8435160@gmail.com', 'อีเมล')" class="bg-white p-4 rounded-2xl border border-gray-200/80 hover:border-pinksoft-300 transition-all cursor-pointer group flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-xl bg-pinksoft-50 group-hover:bg-pinksoft-400 group-hover:text-white text-pinksoft-400 flex items-center justify-center text-base transition-colors shrink-0">
+                                <i class="fa-regular fa-envelope"></i>
+                            </div>
+                            <div class="overflow-hidden">
+                                <p class="text-[10px] text-gray-400 font-medium">อีเมล (คลิกคัดลอก)</p>
+                                <p class="text-xs font-bold text-stonegray truncate">rc8435160@gmail.com</p>
+                            </div>
+                        </div>
+
+                        <!-- Area Location -->
+                        <div class="bg-white p-4 rounded-2xl border border-gray-200/80 flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-xl bg-pinksoft-50 text-pinksoft-400 flex items-center justify-center text-base shrink-0">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div class="overflow-hidden">
+                                <p class="text-[10px] text-gray-400 font-medium">พื้นที่หลัก</p>
+                                <p class="text-xs font-bold text-stonegray truncate">อ.ภูเวียง จ.ขอนแก่น</p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Residence Address Card -->
+                    <div class="bg-white p-4 rounded-2xl border border-pinksoft-100 text-xs text-gray-600 flex items-center justify-center gap-2.5 text-center">
+                        <i class="fa-solid fa-house-user text-pinksoft-400 text-base shrink-0"></i>
+                        <span><strong>ที่อยู่ตามทะเบียนบ้าน:</strong> บ้านโคกสงเปื่อย ตำบลทุ่งชมพู อำเภอภูเวียง จังหวัดขอนแก่น</span>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- GitHub Pages Guide Section -->
+        <section id="github-guide" class="scroll-mt-20">
+            <div class="minimal-card rounded-3xl p-6 sm:p-8 bg-stonegray text-white shadow-xl">
+                <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 mb-6 pb-4 border-b border-gray-800">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-2xl bg-gray-800 text-pinksoft-300 border border-gray-700 flex items-center justify-center text-xl">
+                            <i class="fa-brands fa-github"></i>
+                        </div>
+                        <div>
+                            <h2 class="text-lg font-bold text-white font-heading">คู่มือการนำเว็บไซต์ขึ้น GitHub Pages</h2>
+                            <p class="text-xs text-gray-400">ขั้นตอนง่ายๆ ในการปล่อยเว็บไซต์เข้าสู่โลกออนไลน์ฟรีตลอด 24 ชั่วโมง</p>
+                        </div>
+                    </div>
+                    <button onclick="openReadmeModal()" class="px-4 py-2 rounded-xl bg-pinksoft-400 hover:bg-pinksoft-500 text-white text-xs font-medium transition-colors flex items-center gap-2 cursor-pointer">
+                        <i class="fa-solid fa-file-code"></i> ดูข้อความ README.md
+                    </button>
+                </div>
+
+                <!-- GitHub Deployment Steps Grid -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 text-xs">
+                    <div class="bg-gray-800/90 p-4 rounded-2xl border border-gray-700/80">
+                        <span class="text-pinksoft-300 font-bold block mb-1">1. สร้าง Repository</span>
+                        <h4 class="font-bold text-white font-heading mb-1">GitHub Repository</h4>
+                        <p class="text-gray-400">เข้าเว็บ <a href="https://github.com" target="_blank" class="text-pinksoft-300 underline">GitHub.com</a> สร้าง New Repository เช่น <code class="text-pinksoft-200 bg-gray-900 px-1.5 py-0.5 rounded">biwti-portfolio</code></p>
+                    </div>
+
+                    <div class="bg-gray-800/90 p-4 rounded-2xl border border-gray-700/80">
+                        <span class="text-pinksoft-300 font-bold block mb-1">2. อัปโหลดไฟล์</span>
+                        <h4 class="font-bold text-white font-heading mb-1">index.html & README</h4>
+                        <p class="text-gray-400">เซฟไฟล์นี้เป็นชื่อ <code class="text-pinksoft-200 bg-gray-900 px-1.5 py-0.5 rounded">index.html</code> พร้อมสร้าง <code class="text-pinksoft-200 bg-gray-900 px-1.5 py-0.5 rounded">README.md</code> แล้วอัปโหลดขึ้น Root</p>
+                    </div>
+
+                    <div class="bg-gray-800/90 p-4 rounded-2xl border border-gray-700/80">
+                        <span class="text-pinksoft-300 font-bold block mb-1">3. เปิดใช้งาน Pages</span>
+                        <h4 class="font-bold text-white font-heading mb-1">Settings > Pages</h4>
+                        <p class="text-gray-400">ไปที่เมนู <strong>Settings</strong> > <strong>Pages</strong> เลือก Branch เป็น <code class="text-pinksoft-200 bg-gray-900 px-1.5 py-0.5 rounded">main</code> แล้วกด Save</p>
+                    </div>
+
+                    <div class="bg-gray-800/90 p-4 rounded-2xl border border-gray-700/80">
+                        <span class="text-pinksoft-300 font-bold block mb-1">4. พร้อมใช้งาน</span>
+                        <h4 class="font-bold text-white font-heading mb-1">Live Website</h4>
+                        <p class="text-gray-400">รอประมาณ 1-2 นาที คุณจะได้ URL เว็บไซต์ เช่น <code class="text-pinksoft-200 bg-gray-900 px-1.5 py-0.5 rounded">username.github.io/biwti-portfolio</code></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-pinksoft-100 bg-white py-6 text-center text-xs text-gray-500">
+        <div class="max-w-5xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-3">
+            <p>© 2026 Natthida Chanruangsri (Biwti). All Rights Reserved.</p>
+            <p class="text-gray-400 flex items-center gap-1.5">
+                <span>Minimal Modern Design</span>
+                <span>•</span>
+                <span class="text-pinksoft-500 font-medium">Tailwind CSS</span>
+            </p>
+        </div>
+    </footer>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="fixed bottom-6 right-6 bg-stonegray text-white px-4 py-3 rounded-2xl shadow-xl text-xs flex items-center gap-3 transition-all duration-300 transform translate-y-20 opacity-0 pointer-events-none z-50">
+        <i class="fa-solid fa-circle-check text-pinksoft-300 text-base"></i>
+        <span id="toast-message">คัดลอกข้อมูลสำเร็จ!</span>
+    </div>
+
+    <!-- README Content Modal -->
+    <div id="readme-modal" class="fixed inset-0 bg-black/60 backdrop-blur-xs flex items-center justify-center p-4 z-50 hidden">
+        <div class="bg-stonegray text-white w-full max-w-2xl rounded-3xl p-6 border border-gray-800 shadow-2xl space-y-4 max-h-[85vh] flex flex-col">
+            <div class="flex items-center justify-between pb-3 border-b border-gray-800">
+                <h3 class="text-base font-bold text-white font-heading flex items-center gap-2">
+                    <i class="fa-brands fa-markdown text-pinksoft-300"></i> เนื้อหา README.md
+                </h3>
+                <button onclick="closeReadmeModal()" class="text-gray-400 hover:text-white p-1 cursor-pointer">
+                    <i class="fa-solid fa-xmark text-lg"></i>
+                </button>
+            </div>
+            <pre id="readme-code" class="bg-gray-950 p-4 rounded-xl text-xs text-gray-300 font-mono overflow-y-auto flex-grow leading-relaxed border border-gray-800 select-all"># Academic Portfolio - Natthida Chanruangsri (Biwti)
+
+เว็บไซต์ประวัติส่วนตัวและแฟ้มสะสมผลงานทางวิชาการ สไตล์ Minimal Modern
+พัฒนาด้วย HTML5, Tailwind CSS, และ FontAwesome
+
+## 🌸 ข้อมูลส่วนตัว
+- **ชื่อ-นามสกุล:** นางสาวณัฐธิดา จันทร์เรืองศรี (บิวตี้)
+- **วันเกิด:** 14 กันยายน 2550 | **อายุ:** 19 ปี | **สัญชาติ:** ไทย
+- **เบอร์โทรศัพท์:** 098-006-0898
+- **อีเมล:** rc8435160@gmail.com
+- **ที่อยู่:** บ้านโคกสงเปื่อย ต.ทุ่งชมพู อ.ภูเวียง จ.ขอนแก่น
+
+## 🎓 ประวัติการศึกษา
+1. **ระดับปริญญาตรี (2569):** วิทยาลัยการสาธารณสุขสิรินธร จังหวัดขอนแก่น
+2. **ระดับมัธยมศึกษาตอนปลาย (2568):** โรงเรียนเวียงนครวิทยาคม
+3. **ระดับมัธยมศึกษาตอนต้น (2562):** โรงเรียนเวียงนครวิทยาคม
+
+## 🏥 ประสบการณ์ฝึกปฏิบัติงาน
+- **โรงพยาบาลภูเวียง จังหวัดขอนแก่น:**
+  - **ห้องกายภาพบำบัด:** ซักประวัติผู้ป่วย ตรวจวัดความดันโลหิต นำผ้าร้อนประคบเพื่อคลายกล้ามเนื้อ
+  - **แผนกสูตินรีเวช:** ช่วยพยาบาลวัดไข้ วัดความดัน ชั่งน้ำหนัก วัดส่วนสูงคุณแม่ และสังเกตการณ์การตรวจรักษาของแพทย์
+
+## 🚀 การติดตั้งผ่าน GitHub Pages
+1. นำไฟล์ `index.html` อัปโหลดไปไว้ที่ Root Directory ของ Repository
+2. ไปที่ `Settings` > `Pages`
+3. เลือก Branch `main` และโฟลเดอร์ `/ (root)` แล้วกด `Save`
+4. รอ 1-2 นาทีเพื่อเข้าชมเว็บไซต์ผ่าน URL GitHub Pages</pre>
+            <div class="pt-2 flex justify-end gap-2">
+                <button onclick="copyReadmeText()" class="px-4 py-2 rounded-xl bg-pinksoft-400 hover:bg-pinksoft-500 text-white text-xs font-medium transition-colors flex items-center gap-1.5 cursor-pointer">
+                    <i class="fa-solid fa-copy"></i> คัดลอกข้อความ README.md
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Toggle Mobile Menu
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Copy Text Helper (Standard execCommand for safest iFrame compatibility)
+        function copyToClipboard(text, label) {
+            const textarea = document.createElement('textarea');
+            textarea.value = text;
+            document.body.appendChild(textarea);
+            textarea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textarea);
+
+            showToast(`คัดลอก${label} (${text}) แล้ว!`);
+        }
+
+        // Show Toast Notification
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            const toastMsg = document.getElementById('toast-message');
+            toastMsg.innerText = message;
+
+            toast.classList.remove('translate-y-20', 'opacity-0', 'pointer-events-none');
+            toast.classList.add('translate-y-0', 'opacity-100');
+
+            setTimeout(() => {
+                toast.classList.add('translate-y-20', 'opacity-0', 'pointer-events-none');
+                toast.classList.remove('translate-y-0', 'opacity-100');
+            }, 2800);
+        }
+
+        // README Modal Handlers
+        function openReadmeModal() {
+            document.getElementById('readme-modal').classList.remove('hidden');
+        }
+
+        function closeReadmeModal() {
+            document.getElementById('readme-modal').classList.add('hidden');
+        }
+
+        function copyReadmeText() {
+            const code = document.getElementById('readme-code').innerText;
+            const textarea = document.createElement('textarea');
+            textarea.value = code;
+            document.body.appendChild(textarea);
+            textarea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textarea);
+
+            showToast('คัดลอกข้อความ README.md สำเร็จ!');
+        }
+    </script>
+</body>
+</html>
